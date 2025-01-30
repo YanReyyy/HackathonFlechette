@@ -14,13 +14,16 @@ public class DartCollision : MonoBehaviour
 
             // stop the dart
             Rigidbody rb = GetComponent<Rigidbody>();
-            rb.isKinematic = true;
+            rb.isKinematic = false;
+            rb.useGravity = false;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
 
             // let it stick
             Vector3 hitPoint = collision.contacts[0].point;
-            transform.position = hitPoint;
+            rb.MovePosition(hitPoint);
+            //transform.position = hitPoint;
             transform.SetParent(collision.transform);
         }
     }

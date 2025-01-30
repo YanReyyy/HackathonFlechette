@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using UnityEngine;
 
 public class DartCollision : MonoBehaviour
@@ -29,6 +30,7 @@ public class DartCollision : MonoBehaviour
             //hhhhh.z -= 0.5f;
             //transform.position = hitPoint;
             transform.SetParent(collision.transform);
+            
         }
     }
 }

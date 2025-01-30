@@ -37,7 +37,7 @@ public class TargetPointSystem : MonoBehaviour
     private float CalculateScore(Vector3 hitPoint)
     {
         Debug.Log("Transform Point" + transform.position);
-        Vector3 centerPoint=transform.position;
+        Vector3 centerPoint = transform.position;
         centerPoint.x += 2.29f;
         centerPoint.y -= 0.16f;
         centerPoint.z += 0.13f;
@@ -47,11 +47,11 @@ public class TargetPointSystem : MonoBehaviour
 
         // transform.position is the center, r1 = 0.1, r2 = 0.2, r3 = 0.5, r4 = 1
         if (distance < 0.1f)
-            return 5f; // r1
+            return 2.5f; // r1
         else if (distance < 1.5f)
-            return 3f; // r2
+            return 1.5f; // r2
         else if (distance < 2f)
-            return 1f; // r3
+            return 0.5f; // r3
         else
             return 0; // outside
     }

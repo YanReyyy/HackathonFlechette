@@ -30,7 +30,7 @@ public class DartCollision : MonoBehaviour
             //hhhhh.z -= 0.5f;
             //transform.position = hitPoint;
             transform.SetParent(collision.transform);
-            
+
         }
     }
 }

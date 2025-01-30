@@ -72,7 +72,7 @@ public class InteractableObject : MonoBehaviour
         transform.SetParent(null); // Relâcher l'objet
         Debug.Log("im launching the dart");
 
-        //objectToAttach.GetComponent<DartLaunch>().FireDart();
+        GetComponent<DartLaunch>().FireDart();
 
     }
 

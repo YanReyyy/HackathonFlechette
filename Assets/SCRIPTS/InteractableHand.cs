@@ -7,6 +7,13 @@ public class InteractableObject : MonoBehaviour
     private bool isBeingHeld = false;
     public OVRHand ovrHand; // Référence au composant OVRHand
 
+    private Vector3 offset = new(-0.04f, 0.1f, 0.08f);
+    private Vector3 rotOffsetAngles = new(-47, -172, 0);
+
+    private void Start()
+    {
+
+    }
     private void Update()
     {
         Debug.Log(isBeingHeld);
@@ -54,20 +61,28 @@ public class InteractableObject : MonoBehaviour
     {
         isBeingHeld = true;
         transform.SetParent(objectToAttach); // Attacher directement à la main
-        transform.localPosition = Vector3.zero; // Ajuster la position relative
-        transform.localRotation = Quaternion.identity; // Ajuster la rotation relative
+        transform.localPosition = new Vector3(0, 0, 0.1f);
+        transform.localRotation = Quaternion.Euler(90, 0, 0);
     }
 
     private void ReleaseObject()
     {
+
         isBeingHeld = false;
         transform.SetParent(null); // Relâcher l'objet
+        Debug.Log("im launching the dart");
+
+        //objectToAttach.GetComponent<DartLaunch>().FireDart();
+
     }
 
     private void FollowHand()
     {
-        // Suivre la position et la rotation de l'objet attaché
-        transform.position = objectToAttach.position;
-        transform.rotation = objectToAttach.rotation;
+
+        // Suivre la position de l'objet attaché avec un décalage
+        transform.position = objectToAttach.position + offset;
+
+        // Appliquer une rotation inversée
+        transform.rotation = objectToAttach.rotation * Quaternion.Euler(rotOffsetAngles);
     }
 }

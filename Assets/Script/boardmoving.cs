@@ -34,7 +34,7 @@ public class TargetMover : MonoBehaviour
 
         float randomX = Random.Range(wall.position.x - halfWidth, wall.position.x + halfWidth);
         float randomY = Random.Range(wall.position.y - halfHeight, wall.position.y + halfHeight);
-        float fixedZ = wall.position.z+0.03f;
+        float fixedZ = wall.position.z+0.05f;
 
 
         targetPosition = new Vector3(randomX, randomY, fixedZ);

@@ -7,10 +7,10 @@ public class TargetMover : MonoBehaviour
 {
     public Transform wall;  // Reference to the wall
 
-    public float moveSpeed = 2f;
+    public float moveSpeed =2f;
     //public float moveSpeed = Gamesetting.targetMoveSpeed;
     public float moveInterval = 2f;
-
+   
 
     private Vector3 targetPosition;
     private float timer;

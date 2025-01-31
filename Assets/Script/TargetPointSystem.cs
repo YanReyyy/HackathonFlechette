@@ -10,6 +10,7 @@ public class TargetPointSystem : MonoBehaviour
 {
     public TMP_Text scoreText;
     private float totalScore = 0f;
+    private HashSet<int> dartIDs = new HashSet<int>();
 
     void Start()
     {
@@ -20,6 +21,16 @@ public class TargetPointSystem : MonoBehaviour
     {
         Debug.Log("Collision Detected with: " + collision.gameObject.name);
         //Debug.Log("Firstcollision: " + firstcollision);
+
+        DartCollision dart = collision.gameObject.GetComponent<DartCollision>();
+
+        if (dartIDs.Contains(dart.dartID))
+        {
+            Debug.LogWarning(" " + dart.dartID + " has been counted before");
+            return;
+        }
+        dartIDs.Add(dart.dartID);
+
 
         if (collision.gameObject.CompareTag("Dart"))// && firstcollision
         {
@@ -47,11 +58,11 @@ public class TargetPointSystem : MonoBehaviour
 
         // transform.position is the center, r1 = 0.1, r2 = 0.2, r3 = 0.5, r4 = 1
         if (distance < 0.1f)
-            return 2.5f; // r1
+            return 5f; // r1
         else if (distance < 1.5f)
-            return 1.5f; // r2
+            return 3f; // r2
         else if (distance < 2f)
-            return 0.5f; // r3
+            return 1f; // r3
         else
             return 0; // outside
     }

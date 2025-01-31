@@ -6,6 +6,19 @@ using UnityEngine;
 public class DartCollision : MonoBehaviour
 {
     private bool isStuck = false; // stuck on the board or not
+    private Rigidbody rb;
+    public int dartID;
+    private static int dartIDCounter = 0;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        dartID = dartIDCounter;
+        dartIDCounter++;
+        Debug.Log("Create the dart" + dartID);
+        
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +27,6 @@ public class DartCollision : MonoBehaviour
             isStuck = true; // stuck
 
             // stop the dart
-            Rigidbody rb = GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.useGravity = false;
             rb.velocity = Vector3.zero;

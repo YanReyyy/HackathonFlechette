@@ -19,6 +19,6 @@ public class GameStartController : MonoBehaviour
     void OnClickStartGame()
     {
         // ÇÐ»»µ½ DifficultySelectScene
-        SceneManager.LoadScene("DifficultySelectScene");
+        SceneManager.LoadScene(1);
     }
 }

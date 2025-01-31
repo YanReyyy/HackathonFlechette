@@ -8,6 +8,7 @@ TagManager:
   - Dartboard
   - Environment
   - Dart
+  - EASY
   layers:
   - Default
   - TransparentFX

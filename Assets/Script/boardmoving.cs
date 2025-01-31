@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class TargetMover : MonoBehaviour
+public class BoardMoving : MonoBehaviour
 {
     public Transform wall;  // Reference to the wall
 

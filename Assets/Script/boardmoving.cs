@@ -5,38 +5,43 @@ using UnityEngine;
 
 public class TargetMover : MonoBehaviour
 {
-    public Transform wall;  // 绑定墙面
-    public float moveSpeed = 2f; // 运动速度
-    public float moveInterval = 2f; // 多久换一个目标点
+    public Transform wall;  // Reference to the wall
 
-    private Vector3 targetPosition; // 靶子的目标位置
-    private Bounds wallBounds; // 墙的边界范围
+    public float moveSpeed = 2f;
+    //public float moveSpeed = Gamesetting.targetMoveSpeed;
+    public float moveInterval = 2f;
 
-  void Start()
+
+    private Vector3 targetPosition;
+    private float timer;
+    private void Start()
     {
+        // Set initial position
         ChooseNewTarget();
-        InvokeRepeating("ChooseNewTarget", moveInterval, moveInterval);
     }
 
-  void Update()
+    private void Update()
     {
-        // 让靶子平滑移动到目标位置
-        
+        // Move towards target
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        timer += Time.deltaTime;
+        if (timer >= moveInterval)
+        {
+            ChooseNewTarget();
+            timer = 0f;
+        }
     }
 
-  void ChooseNewTarget()
+    void ChooseNewTarget()
     {
-        
-       
         float halfWidth = 3.2f / 2f;
         float halfHeight = 2.8f / 2f;
-
-        float randomX = Random.Range(wall.position.x - halfWidth, wall.position.x + halfWidth);
-        float randomY = Random.Range(wall.position.y - halfHeight, wall.position.y + halfHeight);
-        float fixedZ = wall.position.z+0.05f;
-
-
-        targetPosition = new Vector3(randomX, randomY, fixedZ);
+        float randomX = Random.Range(-halfWidth, +halfWidth);
+        float randomY = Random.Range(-halfHeight, halfHeight);
+        float fixedZ = wall.position.z + 0.05f;
+        Vector3 arrive = new Vector3(wall.position.x, wall.position.y, fixedZ) + wall.transform.right * randomX + wall.transform.up * randomY;
+        targetPosition = arrive;
+        transform.forward = wall.forward;
     }
 }

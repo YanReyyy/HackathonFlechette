@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class easyScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject endGame;
     void Start()
     {
         
@@ -34,9 +35,9 @@ public class easyScript : MonoBehaviour
         // 设置全局难度
 
         GameSettings.SetDifficulty(level);
-
-        // 切换到真正的游戏内容场景
-        SceneManager.LoadScene("GameScene");
+        gameObject.transform.parent.gameObject.SetActive(false);
+        endGame.SetActive(true);
+    
     }
 }
 

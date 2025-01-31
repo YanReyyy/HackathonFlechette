@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class hardScript : MonoBehaviour
 {
+    public GameObject endGame; 
     // Start is called before the first frame update
     void Start()
     {
@@ -34,9 +35,9 @@ public class hardScript : MonoBehaviour
         // 设置全局难度
 
         GameSettings.SetDifficulty(level);
-
-        // 切换到真正的游戏内容场景
-        SceneManager.LoadScene("GameScene");
+        gameObject.transform.parent.gameObject.SetActive(false);
+        endGame.SetActive(true);
+        
     }
 }
 

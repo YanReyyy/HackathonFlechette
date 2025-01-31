@@ -6,11 +6,11 @@ using UnityEngine;
 public class BoardMoving : MonoBehaviour
 {
     public Transform wall;  // Reference to the wall
+    /*public float moveInterval = 2f;
+    public float moveSpeed = 2f;*/
+    public float moveSpeed = GameSettings.targetMoveSpeed;
+    public float moveInterval = GameSettings.targetSwitchInterval;
 
-    public float moveSpeed =2f;
-    //public float moveSpeed = Gamesetting.targetMoveSpeed;
-    public float moveInterval = 2f;
-   
 
     private Vector3 targetPosition;
     private float timer;

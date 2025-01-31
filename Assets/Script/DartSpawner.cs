@@ -32,7 +32,7 @@ public class DartSpawner : MonoBehaviour
 
             // Create
             GameObject newDart = Instantiate(dartPrefab, dartPosition, Quaternion.identity);
-            newDart.transform.rotation = Quaternion.Euler(90, 0, 0);
+            newDart.transform.rotation = Quaternion.Euler(-90, 0, 0);
             newDart.transform.SetParent(null, true); // Don't move with the camera
         }
     }

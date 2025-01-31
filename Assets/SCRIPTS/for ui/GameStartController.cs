@@ -26,6 +26,7 @@ public class GameStartController : MonoBehaviour
         if (other.CompareTag("Hand"))
         {
             Debug.Log("touch game start");
+            TargetTransition.score = 0;
             OnClickStartGame();
         }
     }

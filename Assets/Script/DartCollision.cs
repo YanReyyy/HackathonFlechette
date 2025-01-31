@@ -22,10 +22,11 @@ public class DartCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collision.gameObject.CompareTag("Dartboard") || collision.gameObject.CompareTag("Environment")) && !isStuck)
+        // || collision.gameObject.CompareTag("Environment")) && !isStuck
+        if ((collision.gameObject.CompareTag("Dartboard")))
         {
             isStuck = true; // stuck
-
+            Debug.Log("Dart hit board");
             // stop the dart
             rb.isKinematic = false;
             rb.useGravity = false;

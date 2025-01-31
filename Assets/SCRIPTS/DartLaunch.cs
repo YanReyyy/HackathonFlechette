@@ -51,7 +51,7 @@ public class DartLaunch : MonoBehaviour
                 // rb.velocity = new Vector3(0.0f, -2.0f, -5.0f);
                 isLaunched = true;
 
-                rb.velocity = (newPosition - oldPosition) / Time.deltaTime * 2;
+                rb.velocity = (newPosition - oldPosition) / Time.deltaTime * launchForce;
 
                 Debug.Log("Dart launched with velocity: " + rb.velocity);
             }

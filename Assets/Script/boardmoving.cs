@@ -39,7 +39,7 @@ public class BoardMoving : MonoBehaviour
         float halfHeight = 2.8f / 2f;
         float randomX = Random.Range(-halfWidth, +halfWidth);
         float randomY = Random.Range(-halfHeight, halfHeight);
-        float fixedZ = wall.position.z + 0.05f;
+        float fixedZ = wall.position.z - 0.1f;
         Vector3 arrive = new Vector3(wall.position.x, wall.position.y, fixedZ) + wall.transform.right * randomX + wall.transform.up * randomY;
         targetPosition = arrive;
         transform.forward = wall.forward;
